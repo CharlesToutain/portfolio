@@ -12,13 +12,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <h1>Charles-Edouard</h1>
-      {
-        posts.map(post =>(
-          <Link to={`/${post.node.slug}/`}>
-          <h1 key={post.node.id}>{post.node.title}</h1>
-          </Link>
-        ))
-      }
+      <Link to="/blog/">Voir le blog</Link>
       <p>Now go build something great.</p>
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />

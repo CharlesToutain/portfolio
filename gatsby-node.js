@@ -34,5 +34,34 @@ exports.createPages = ({ graphql, boundActionCreators })  => {
             })
             resolve()
         })
+        graphql(`
+            {
+                allWordpressPage {
+                    edges {
+                        node {
+                        id
+                        slug
+                        }
+                    }
+                }
+            }
+        `).then(result => {
+            if (result.errors){
+                console.log(result.errors)
+                reject.result.errors
+            }
+            const pageTemplate = path.resolve('./src/templates/page.js')
+            result.data.allWordpressPage.edges.map( page => {
+                createPage({
+                    path: `/${page.node.slug}/`,
+                    component: slash(pageTemplate),
+                    context : {
+                        slug: page.node.slug,
+                        id: page.node.id
+                    }
+                })
+            })
+            resolve()
+        })
     })
 }
