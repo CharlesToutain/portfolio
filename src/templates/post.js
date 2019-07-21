@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 const Post = ({ data }) => {
     const { title, content, date} = data.wordpressPost
     return (
-        <div>
+        <div className="container">
             <h1>{title}</h1>
             <p>{date}</p>
             <div dangerouslySetInnerHTML={{__html: content}}/>

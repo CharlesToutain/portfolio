@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
@@ -11,15 +10,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Charles-Edouard</h1>
+      <h1>Développeur Full-Stack ERP/CRM/Odoo</h1>
       <Link to="/blog/">Voir le blog</Link>
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      <Link to="/page-2/">Go to page 2</Link>
-      < Link to = "/portfolio/" > Go to page 3 </Link>
-      < Link to = "/cgv/" > Go to page 3 </Link>
     </Layout>
   )
 }
