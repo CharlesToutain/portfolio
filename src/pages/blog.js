@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import { Row, Col, Card} from "antd"
 import SEO from "../components/seo"
 
 const blogPage = ({ data }) => {
@@ -12,9 +13,17 @@ const blogPage = ({ data }) => {
             <SEO title="Home" />
             {
                 posts.map(post =>(
-                <Link to={`/${post.node.slug}/`}>
-                <h1 key={post.node.id}>{post.node.title}</h1>
-                </Link>
+                    <Link to={`/${post.node.slug}/`}>
+                        <div style={{ background: '#ECECEC', padding: '30px' }}>
+                            <Row gutter={16}>
+                            <Col span={8}>
+                                <Card key={post.node.id} title={post.node.title} bordered={false}>
+                                    <div dangerouslySetInnerHTML={{__html: post.node.excerpt}}/>
+                                </Card>
+                            </Col>
+                            </Row>
+                        </div>
+                    </Link>
                 ))
             }
         </Layout>
@@ -32,6 +41,7 @@ query blogExcerpt {
             title
             slug
             date
+            excerpt
             }
         }
     }

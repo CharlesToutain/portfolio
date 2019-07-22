@@ -1,11 +1,24 @@
 module.exports = {
   siteMetadata: {
-    title: `Charles-Edouard Toutain`,
+    title: `Développeur Web Full-Stack`,
     description: `Développeur Web Full-Stack ERP CRM ODOO, python,xml,htlml,css,js.`,
     author: `Charles-Edouard Toutain`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-less",
+      options: {
+        modifyVars: require("./src/theme/antd.js"),
+        javascriptEnabled: true,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-antd",
+      options: {
+        style: true,
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

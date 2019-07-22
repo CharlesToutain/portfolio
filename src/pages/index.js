@@ -8,7 +8,7 @@ const IndexPage = ({ data }) => {
   const posts = data.allWordpressPost.edges
   console.log(posts)
   return (
-    <Layout>
+    <Layout page="1"> 
       <SEO title="Home" />
       <h1>Développeur Full-Stack ERP/CRM/Odoo</h1>
       <Link to="/blog/">Voir le blog</Link>
