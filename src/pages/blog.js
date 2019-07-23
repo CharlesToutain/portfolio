@@ -2,30 +2,38 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import { Row, Col, Card} from "antd"
+import {List,  Card, Divider} from "antd"
 import SEO from "../components/seo"
+import Bio from "../components/bio"
 
 const blogPage = ({ data }) => {
     const posts = data.allWordpressPost.edges
-    console.log(posts)
     return (
-        <Layout>
+        <Layout page="2">
             <SEO title="Home" />
-            {
-                posts.map(post =>(
+            <List
+                grid={{
+                gutter: 16,
+                xs: 1,
+                sm: 2,
+                md: 4,
+                lg: 4,
+                xl: 6,
+                xxl: 3,
+                }}
+                dataSource={posts}
+                renderItem={post => (
+                <List.Item>
                     <Link to={`/${post.node.slug}/`}>
-                        <div style={{ background: '#ECECEC', padding: '30px' }}>
-                            <Row gutter={16}>
-                            <Col span={8}>
-                                <Card key={post.node.id} title={post.node.title} bordered={false}>
-                                    <div dangerouslySetInnerHTML={{__html: post.node.excerpt}}/>
-                                </Card>
-                            </Col>
-                            </Row>
-                        </div>
+                    <Card key={post.node.id}title={post.node.title}>
+                        <div dangerouslySetInnerHTML = {{__html: post.node.excerpt}}/>
+                    </Card>
                     </Link>
-                ))
-            }
+                </List.Item>
+                )}
+            />
+            <Divider/>
+            <Bio/>
         </Layout>
     )
 }

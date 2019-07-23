@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { List, Avatar, Divider} from "antd"
+import { List, Avatar} from "antd"
 
 const Bio = () => (
     <List.Item>

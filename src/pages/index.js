@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Bio from "../components/bio"
+import { Divider } from 'antd';
 
 const IndexPage = ({ data }) => {
   const posts = data.allWordpressPost.edges
@@ -10,8 +12,10 @@ const IndexPage = ({ data }) => {
   return (
     <Layout page="1"> 
       <SEO title="Home" />
-      <h1>Développeur Full-Stack ERP/CRM/Odoo</h1>
+      <h1>Compétences : Python, JavaScript, XML/HTML/CSS</h1>
       <Link to="/blog/">Voir le blog</Link>
+      <Divider/>
+      <Bio/>
     </Layout>
   )
 }

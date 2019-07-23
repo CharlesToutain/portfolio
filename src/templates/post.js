@@ -1,14 +1,20 @@
 import React from 'react'
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { Divider} from "antd"
 import { graphql } from 'gatsby';
 
 const Post = ({ data }) => {
     const { title, content, date} = data.wordpressPost
     return (
-        <div className="container">
-            <h1>{title}</h1>
+        <Layout>
+            <SEO title={title} description={title} />
             <p>{date}</p>
-            <div dangerouslySetInnerHTML={{__html: content}}/>
-        </div>
+            <div className="container" dangerouslySetInnerHTML={{ __html: content }} />
+            <Bio />
+            <Divider />
+        </Layout>
     )
 }
 
